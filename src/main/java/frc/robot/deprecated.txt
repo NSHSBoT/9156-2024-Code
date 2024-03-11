@@ -1,0 +1,342 @@
+Code Block #1
+private static final String kNothingAuto = "Do Nothing";
+  private static final String kLaunchAndDrive = "Launch and Drive";
+  private static final String kLaunch = "Launch";
+  private static final String kDrive = "Drive";
+
+Line 235
+  //leftArmMotor.setInverted(true);
+  //leftArmMotor.follow(rightArmMotor);
+
+line 240 
+ // problem
+  // leftDrivetrainEncoder.setPosition(0);
+  // rightDrivetrainEncoder.setPosition(0);
+
+line 330
+    // System.out.println(operatorController.getRawButtonPressed(armCurrentLimit));
+
+line 338
+  //final CommandXboxController driverController = new CommandXboxController(kDriverControllerPort);
+   // final CommandXboxController operatorController = new CommandXboxController(kOperatorControllerPort);
+
+line 410
+   //   rightArmMotorPID.setReference(armTarget, CANSparkMax.ControlType.kPosition);
+   //   leftArmMotorPID.setReference(armTarget, CANSparkMax.ControlType.kPosition);
+
+line 413
+/*  
+    // SmartDashboard
+    SmartDashboard.putNumber("Left Y", driverController.getLeftY());
+    SmartDashboard.putNumber("Left X", driverController.getRightX());
+    SmartDashboard.putNumber("EncoderRight", rightDrivetrainEncoder.getPosition());
+    SmartDashboard.putNumber("EncoderLeft", leftDrivetrainEncoder.getPosition());
+  
+     double p = SmartDashboard.getNumber("P Gain", 0);
+    double i = SmartDashboard.getNumber("I Gain", 0);
+    double d = SmartDashboard.getNumber("D Gain", 0);
+    double iz = SmartDashboard.getNumber("I Zone", 0);
+    double ff = SmartDashboard.getNumber("Feed Forward", 0);
+    double max = SmartDashboard.getNumber("Max Output", 0);
+    double min = SmartDashboard.getNumber("Min Output", 0);
+    double rotations = SmartDashboard.getNumber("Set Rotations", 0);
+    double rightPosition = SmartDashboard.getNumber("right Position", 0);
+    double leftPosition = SmartDashboard.getNumber("left Position", 0);
+    
+    // if PID coefficients on SmartDashboard have changed, write new values to controller
+    // if((p != kP)) { m_pidController12.setP(p); kP = p; }
+    if((p != kP)) { rightDrivetrainPID.setP(p); kP = p; leftDrivetrainPID.setP(p); }
+    if((i != kI)) { rightDrivetrainPID.setI(i); kI = i; leftDrivetrainPID.setI(i); }
+    if((d != kD)) { rightDrivetrainPID.setD(d); kD = d; leftDrivetrainPID.setD(d);}
+    if((iz != kIz)) { rightDrivetrainPID.setIZone(iz); kIz = iz; leftDrivetrainPID.setIZone(iz); }
+    if((ff != kFF)) { rightDrivetrainPID.setFF(ff); kFF = ff; leftDrivetrainPID.setFF(ff); }
+    if((max != kMaxOutput) || (min != kMinOutput)) { 
+      rightDrivetrainPID.setOutputRange(min, max);
+      leftDrivetrainPID.setOutputRange(min, max); 
+      kMinOutput = min; kMaxOutput = max; 
+    }
+
+    
+    rightDrivetrainPID.setReference(rotations, CANSparkMax.ControlType.kPosition);
+    leftDrivetrainPID.setReference(rotations, CANSparkMax.ControlType.kPosition);
+    
+    SmartDashboard.putNumber("SetPoint", rotations);
+    SmartDashboard.putNumber("Right ProcessVariable", rightDrivetrainEncoder.getPosition());
+    SmartDashboard.putNumber("Left ProcessVariable", leftDrivetrainEncoder.getPosition());
+
+  
+  */  
+
+Line 437
+ double time1 = 8;
+  double time2 = 15;
+  double time3 = 20;
+  double rightPosition=0;
+  double leftPosition=0;
+
+line 485
+    // m_autoSelected = m_chooser.getSelected();
+
+    // AUTO_LAUNCH_DELAY_S = 2;
+    // AUTO_DRIVE_DELAY_S = 3;
+
+    // AUTO_DRIVE_TIME_S = 2.0;
+    // AUTO_DRIVE_SPEED = -0.5;
+    // AUTO_LAUNCHER_SPEED = 1;
+
+    // leftRear.set(1);
+
+    /*
+     *  * Depeding on which auton is selected, speeds for the unwanted subsystems
+     * are set to 0
+     *  * if they are not used for the selected auton
+     *  *
+     *  * For kDrive you can also change the kAutoDriveBackDelay
+     *  
+     */
+    // if (m_autoSelected == kLaunch) {
+    //   AUTO_DRIVE_SPEED = 0;
+    // } else if (m_autoSelected == kDrive) {
+    //   AUTO_LAUNCHER_SPEED = 0;
+    // } else if (m_autoSelected == kNothingAuto) {
+    //   AUTO_DRIVE_SPEED = 0;
+    //   AUTO_LAUNCHER_SPEED = 0;
+    // }
+
+    // autonomousStartTime = Timer.getFPGATimestamp();
+
+line 499
+    double rotations = SmartDashboard.getNumber("Set Rotations", 0);
+
+line 553
+
+    // if (timeElapsed <= time1) {
+    //   rightPosition = -.5; 
+    //   leftPosition=.5;
+    // }
+    // else if (timeElapsed <= time2) {
+    //   rightPosition = -1; 
+    //   leftPosition=1;
+    // }
+    // else if (timeElapsed <= time3) {
+    //   rightPosition = -1.5; 
+    //   leftPosition=1.5;
+    // }
+    // else if (timeElapsed <= time3 + time1) {
+    //   rightPosition = -2; 
+    //   leftPosition=2;
+    // }
+    // else  {
+    //   rightPosition = 0; 
+    //   leftPosition=0;
+    // }
+
+
+    //SmartDashboard.putNumber("rightPosition", rightPosition);
+    //SmartDashboard.putNumber("leftPosition", leftPosition);
+
+
+
+    // rightDrivetrainPID.setReference(5, CANSparkBase.ControlType.kPosition);
+    // leftDrivetrainPID.setReference(5, CANSparkBase.ControlType.kPosition);
+
+
+    // double turnAngle = 90;
+    // double turnval = (turnAngle/gyro.getAngle()) * kP;
+
+    // rightDrivetrainPID.setReference(turnval, CANSparkBase.ControlType.kPosition);
+    // leftDrivetrainPID.setReference(turnval, CANSparkBase.ControlType.kPosition);  
+    //SmartDashboard.putNumber("SetPoint", rotations);
+    
+line 555
+ // public void turning(double turnangle) {
+  //   double initangle = gyro.getAngle();
+  //   if (turnangle < 0) {
+  //     rightDrivetrainPID.setReference(turnangle/65, CANSparkBase.ControlType.kPosition);
+  //     leftDrivetrainPID.setReference(turnangle/65, CANSparkBase.ControlType.kPosition);  
+  //   } else {
+  //     rightDrivetrainPID.setReference(turnangle/65, CANSparkBase.ControlType.kPosition);
+  //     leftDrivetrainPID.setReference(turnangle/65, CANSparkBase.ControlType.kPosition);  
+  //   }
+  //   }
+
+  // double timeElapsed = Timer.getFPGATimestamp() - autonomousStartTime;
+
+  // /*
+  //  * Spins up launcher wheel until time spent in auto is greater than
+  // AUTO_LAUNCH_DELAY_S
+  //  *
+  //  * Feeds note to launcher until time is greater than AUTO_DRIVE_DELAY_S
+  //  *
+  //  * Drives until time is greater than AUTO_DRIVE_DELAY_S + AUTO_DRIVE_TIME_S
+  //  *
+  //  * Does not move when time is greater than AUTO_DRIVE_DELAY_S +
+  // AUTO_DRIVE_TIME_S
+  //  */
+  // if(timeElapsed < AUTO_LAUNCH_DELAY_S)
+  // {
+  // m_launchWheel.set(AUTO_LAUNCHER_SPEED);
+  // m_drivetrain.arcadeDrive(0, 0);
+
+  // }
+  // else if(timeElapsed < AUTO_DRIVE_DELAY_S)
+  // {
+  // m_feedWheel.set(AUTO_LAUNCHER_SPEED);
+  // m_drivetrain.arcadeDrive(0, 0);
+  // }
+  // else if(timeElapsed < AUTO_DRIVE_DELAY_S + AUTO_DRIVE_TIME_S)
+  // {
+  // m_launchWheel.set(0);
+  // m_feedWheel.set(0);
+  // m_drivetrain.arcadeDrive(AUTO_DRIVE_SPEED, 0);
+  // }
+  // else
+  // {
+  // m_drivetrain.arcadeDrive(0, 0);
+  // }
+  // /* For an explanation on differintial drive, squaredInputs, arcade drive and
+  // tank drive see the bottom of this file */
+  // }
+
+  // /** This function is called once when teleop is enabled. */
+  // @Override
+  // public void teleopInit() {
+  // /*
+  //  * Motors can be set to idle in brake or coast mode.
+  //  *
+  //  * Brake mode effectively shorts the leads of the motor when not running,
+  // making it more
+  //  * difficult to turn when not running.
+  //  *
+  //  * Coast doesn't apply any brake and allows the motor to spin down naturally
+  // with the robot's momentum.
+  //  *
+  //  * (touch the leads of a motor together and then spin the shaft with your
+  // fingers to feel the difference)
+  //  *
+  //  * This setting is driver preference. Try setting the idle modes below to
+  // kBrake to see the difference.
+  //  */
+  // leftRear.setIdleMode(IdleMode.kCoast);
+  // leftFront.setIdleMode(IdleMode.kCoast);
+  // rightRear.setIdleMode(IdleMode.kCoast);
+  // rightFront.setIdleMode(IdleMode.kCoast);
+  // }
+
+  // /** This function is called periodically during operator control. */
+  // @Override
+  // public void teleopPeriodic() {
+
+  // /*
+  //  * Spins up the launcher wheel
+  //  */
+  // if (m_manipController.getRawButton(1)) {
+  // m_launchWheel.set(LAUNCHER_SPEED);
+  // }
+  // else if(m_manipController.getRawButtonReleased(1))
+  // {
+  // m_launchWheel.set(0);
+  // }
+
+  // /*
+  //  * Spins feeder wheel, wait for launch wheel to spin up to full speed for
+  // best results
+  //  */
+  // if (m_manipController.getRawButton(6))
+  // {
+  // m_feedWheel.set(FEEDER_OUT_SPEED);
+  // }
+  // else if(m_manipController.getRawButtonReleased(6))
+  // {
+  // m_feedWheel.set(0);
+  // }
+
+  // /*
+  //  * While the button is being held spin both motors to intake note
+  //  */
+  // if(m_manipController.getRawButton(5))
+  // {
+  // m_launchWheel.set(-LAUNCHER_SPEED);
+  // m_feedWheel.set(FEEDER_IN_SPEED);
+  // }
+  // else if(m_manipController.getRawButtonReleased(5))
+  // {
+  // m_launchWheel.set(0);
+  // m_feedWheel.set(0);
+  // }
+
+  // /*
+  //  * While the amp button is being held, spin both motors to "spit" the note
+  //  * out at a lower speed into the amp
+  //  *
+  //  * (this may take some driver practice to get working reliably)
+  //  */
+  // if(m_manipController.getRawButton(2))
+  // {
+  // m_feedWheel.set(FEEDER_AMP_SPEED);
+  // m_launchWheel.set(LAUNCHER_AMP_SPEED);
+  // }
+  // else if(m_manipController.getRawButtonReleased(2))
+  // {
+  // m_feedWheel.set(0);
+  // m_launchWheel.set(0);
+  // }
+
+  // /**
+  // * Hold one of the two buttons to either intake or exjest note from roller
+  // claw
+  // *
+  // * One button is positive claw power and the other is negative
+  // *
+  // * It may be best to have the roller claw passively on throughout the match to
+  // * better retain notes but we did not test this
+  // */
+  // if(m_manipController.getRawButton(3))
+  // {
+  // m_rollerClaw.set(CLAW_OUTPUT_POWER);
+  // }
+  // else if(m_manipController.getRawButton(4))
+  // {
+  // m_rollerClaw.set(-CLAW_OUTPUT_POWER);
+  // }
+  // else
+  // {
+  // m_rollerClaw.set(0);
+  // }
+
+  // /**
+  // * POV is the D-PAD (directional pad) on your controller, 0 == UP and 180 ==
+  // DOWN
+  // *
+  // * After a match re-enable your robot and unspool the climb
+  // */
+  // // if(m_manipController.getPOV() == 0)
+  // // {
+  // // m_climber.set(1);
+  // // }
+  // // else if(m_manipController.getPOV() == 180)
+  // // {
+  // // m_climber.set(-1);
+  // // }
+  // // else
+  // // {
+  // // m_climber.set(0);
+  // // }
+
+  // /*
+  //  * Negative signs are here because the values from the analog sticks are
+  // backwards
+  //  * from what we want. Pushing the stick forward returns a negative when we
+  // want a
+  //  * positive value sent to the wheels.
+  //  *
+  //  * If you want to change the joystick axis used, open the driver station, go
+  // to the
+  //  * USB tab, and push the sticks determine their axis numbers
+  // *
+  // * This was setup with a logitech controller, note there is a switch on the
+  // back of the
+  // * controller that changes how it functions
+  //  */
+  // m_drivetrain.arcadeDrive(-m_driverController.getRawAxis(1), -m_driverController.getRawAxis(4), false);
+  // }
